@@ -20,4 +20,4 @@ if [ $GOOS == 'windows' ]; then
   EXT='.exe'
 fi
 
-go build -ldflags '-w -s -extldflags "-static"' -v -o "${PROJECT_NAME}${EXT}"
+CGO_ENABLED=0 go build -ldflags '-w -s -extldflags "-static"' -v -o "${PROJECT_NAME}${EXT}"
