@@ -20,4 +20,4 @@ if [ $GOOS == 'windows' ]; then
   EXT='.exe'
 fi
 
-CGO_ENABLED=0 go build -ldflags "-w -s -extldflags '-static' -X 'main.COMMIT_SHA=$GITHUB_SHA' -X 'main.BUILD_TIME=`date`'" -v -o "${PROJECT_NAME}${EXT}"
+CGO_ENABLED=0 go build -ldflags "-w -s -extldflags '-static' -X 'main.COMMIT_SHA=$GITHUB_SHA' -X 'main.BUILD_TIME=`date`' -X 'main.VERSION=${GITHUB_REF##*/}'" -v -o "${PROJECT_NAME}${EXT}"
