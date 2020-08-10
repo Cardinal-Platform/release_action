@@ -19,6 +19,7 @@ if [ $GOOS == 'windows' ]; then
 fi
 
 cd src
+rm ./locales/i18n.go    # remove the i18n.go in ./locales
 tar cvfz tmp.tgz "./${PROJECT_NAME}${EXT}" "./locales"
 
 curl \
