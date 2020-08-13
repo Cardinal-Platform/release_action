@@ -18,4 +18,4 @@ if [ $GOOS == 'windows' ]; then
   EXT='.exe'
 fi
 
-CGO_ENABLED=0 go build -ldflags "-w -s -extldflags '-static' -X 'internal.utils.COMMIT_SHA=$GITHUB_SHA' -X 'internal.utils.BUILD_TIME=`date`' -X 'internal.utils.VERSION=${GITHUB_REF##*/}'" -v -o "${PROJECT_NAME}${EXT}"
+CGO_ENABLED=0 go build -ldflags "-w -s -extldflags '-static' -X 'github.com/vidar-team/Cardinal/internal/utils.COMMIT_SHA=$GITHUB_SHA' -X 'github.com/vidar-team/Cardinal/internal/utils.BUILD_TIME=`date`' -X 'github.com/vidar-team/Cardinal/internal/utils.VERSION=${GITHUB_REF##*/}'" -v -o "${PROJECT_NAME}${EXT}"
