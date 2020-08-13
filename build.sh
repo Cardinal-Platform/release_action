@@ -12,12 +12,10 @@ rmdir $PROJECT_ROOT
 ln -s $GITHUB_WORKSPACE $PROJECT_ROOT
 cd $PROJECT_ROOT
 
-cd src
-
 EXT=''
 
 if [ $GOOS == 'windows' ]; then
   EXT='.exe'
 fi
 
-CGO_ENABLED=0 go build -ldflags "-w -s -extldflags '-static' -X 'main.COMMIT_SHA=$GITHUB_SHA' -X 'main.BUILD_TIME=`date`' -X 'main.VERSION=${GITHUB_REF##*/}'" -v -o "${PROJECT_NAME}${EXT}"
+CGO_ENABLED=0 go build -ldflags "-w -s -extldflags '-static' -X 'internal.utils.COMMIT_SHA=$GITHUB_SHA' -X 'internal.utils.BUILD_TIME=`date`' -X 'internal.utils.VERSION=${GITHUB_REF##*/}'" -v -o "${PROJECT_NAME}${EXT}"
