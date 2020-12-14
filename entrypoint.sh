@@ -18,7 +18,6 @@ if [ $GOOS == 'windows' ]; then
   EXT='.exe'
 fi
 
-rm ./locales/i18n.go    # remove the i18n.go in ./locales
 tar cvfz tmp.tgz "./${PROJECT_NAME}${EXT}" "./locales"
 
 curl \
